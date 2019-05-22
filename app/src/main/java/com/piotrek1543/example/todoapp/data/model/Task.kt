@@ -1,4 +1,4 @@
-package com.piotrek1543.example.todoapp.remote.model
+package com.piotrek1543.example.todoapp.data.model
 
 import java.util.*
 
