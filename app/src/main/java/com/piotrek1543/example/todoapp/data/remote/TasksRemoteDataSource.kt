@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.piotrek1543.example.todoapp.data.remote.remote
+package com.piotrek1543.example.todoapp.data.remote
 
-import com.piotrek1543.example.todoapp.data.remote.TasksDataSource
+import com.piotrek1543.example.todoapp.data.TasksDataSource
 import com.piotrek1543.example.todoapp.data.model.Task
 import io.reactivex.Completable
 import io.reactivex.Observable
