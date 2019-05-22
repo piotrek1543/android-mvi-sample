@@ -25,7 +25,7 @@ import com.example.android.architecture.blueprints.todoapp.data.Task
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource
 import com.piotrek1543.example.todoapp.data.cache.TasksPersistenceContract.TaskEntry
 import com.example.android.architecture.blueprints.todoapp.util.SingletonHolderDoubleArg
-import com.example.android.architecture.blueprints.todoapp.util.schedulers.BaseSchedulerProvider
+import com.piotrek1543.example.todoapp.util.schedulers.BaseSchedulerProvider
 import com.squareup.sqlbrite2.BriteDatabase
 import com.squareup.sqlbrite2.SqlBrite
 import io.reactivex.Completable

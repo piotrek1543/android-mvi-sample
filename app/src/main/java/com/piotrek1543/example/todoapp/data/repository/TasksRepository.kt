@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.piotrek1543.example.todoapp.data
+package com.piotrek1543.example.todoapp.data.repository
 
 import android.support.annotation.VisibleForTesting
+import com.piotrek1543.example.todoapp.data.TasksDataSource
 import com.piotrek1543.example.todoapp.data.model.Task
 import com.piotrek1543.example.todoapp.util.SingletonHolderDoubleArg
 import io.reactivex.Completable
