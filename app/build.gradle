@@ -28,57 +28,62 @@ androidExtensions {
     experimental = true
 }
 
+/*
+    Dependency versions are defined in the top level build.gradle file. This helps keeping track of
+    all versions in a single place. This improves readability and helps managing project complexity.
+ */
 dependencies {
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    implementation 'androidx.core:core-ktx:0.3'
-
-    // Google Stack
-    implementation "com.android.support:support-compat:27.1.1"
-    implementation "com.android.support:support-fragment:27.1.1"
-    implementation "com.android.support:appcompat-v7:27.1.1"
-    implementation "com.android.support:recyclerview-v7:27.1.1"
-    implementation "com.android.support:design:27.1.1"
-
-    // Timber Logging API: Better method signatures, easy log-level-by-flavor management, decent lint checks, etc.
-    // https://github.com/JakeWharton/timber
-    api "com.jakewharton.timber:timber:4.7.0" // https://github.com/JakeWharton/timber/blob/master/CHANGELOG.md
-
-    // Android specific RxJava libs
-    implementation "io.reactivex.rxjava2:rxandroid:2.0.2" // https://github.com/ReactiveX/RxAndroid/blob/2.x/CHANGES.md
-    implementation "io.reactivex.rxjava2:rxkotlin:2.2.0" // https://github.com/ReactiveX/RxKotlin/releases
-    implementation "com.jakewharton.rxrelay2:rxrelay:2.0.0" // https://github.com/JakeWharton/RxRelay/blob/master/CHANGELOG.md
-    implementation "com.jakewharton.rxbinding2:rxbinding-kotlin:2.1.1" // https://github.com/JakeWharton/RxBinding
-    implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:2.1.1"
-    implementation "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7-kotlin:2.1.1"
-    implementation "com.jakewharton.rxbinding2:rxbinding-design-kotlin:2.1.1"
-    implementation "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin:2.1.1"
-
-    // Square Networking
-    implementation "com.squareup.okhttp3:okhttp:3.11.0" // https://github.com/square/okhttp/blob/master/CHANGELOG.md
-    implementation "com.squareup.okhttp3:okhttp-urlconnection:3.11.0"
-    debugImplementation "com.squareup.okhttp3:logging-interceptor:3.11.0"
-    implementation "com.squareup.retrofit2:retrofit:2.4.0" // https://github.com/square/retrofit/blob/master/CHANGELOG.md
-    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
-
-    // DI Stack
-    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:1.1.3" // https://github.com/stephanenicolas/toothpick/blob/master/CHANGELOG.md
-    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:1.1.3"
-    implementation "com.github.stephanenicolas.toothpick:smoothie:1.1.3"
+    // App's dependencies, including test
+    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:design:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    implementation "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+    implementation "com.squareup.sqlbrite2:sqlbrite:$rootProject.sqlbriteVersion"
+    implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:$rootProject.rxBindingVersion"
+    implementation "android.arch.lifecycle:runtime:$rootProject.archComponentsVersion"
+    implementation "android.arch.lifecycle:extensions:$rootProject.archComponentsVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
+    kapt "android.arch.lifecycle:compiler:$rootProject.archComponentsVersion"
 
     // Dependencies for local unit tests
-    kaptTest "com.github.stephanenicolas.toothpick:toothpick-compiler:1.1.3"
-    testImplementation "com.github.stephanenicolas.toothpick:toothpick-testing:1.1.3"
-    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:1.5.0"
-    testImplementation "junit:junit:4.12"
+    testImplementation "com.nhaarman:mockito-kotlin:$rootProject.mockitoKotlinVersion"
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "org.mockito:mockito-all:$rootProject.mockitoVersion"
+    testImplementation "org.hamcrest:hamcrest-all:$rootProject.hamcrestVersion"
 
     // Android Testing Support Library's runner and rules
-    kaptAndroidTest "com.github.stephanenicolas.toothpick:toothpick-compiler:1.1.3"
-    androidTestImplementation "com.github.stephanenicolas.toothpick:toothpick-testing:1.1.3"
-    androidTestImplementation "com.android.support.test:runner:1.0.2"
-    androidTestImplementation "com.android.support.test:rules:1.0.2"
-    androidTestImplementation "org.mockito:mockito-android:2.23.0"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.runnerVersion"
+    androidTestImplementation "com.android.support.test:rules:$rootProject.runnerVersion"
 
+    // Dependencies for Android unit tests
+    androidTestImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+    androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
+    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
+
+    // Espresso UI Testing
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+
+    // Resolve conflicts between main and test APK:
+    androidTestImplementation "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
+    androidTestImplementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    androidTestImplementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    androidTestImplementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    androidTestImplementation "com.android.support:design:$rootProject.supportLibraryVersion"
+}
+
+/*
+    Resolves dependency versions across test and production APKs, specifically, transitive
+    dependencies. This is required since Espresso internally has a dependency on support-annotations.
+*/
+configurations.all {
+    //  resolutionStrategy.force "com.android.support:support-annotations:$rootProject.ext.lib.supportLibraryVersion"
+    resolutionStrategy.force "com.google.code.findbugs:jsr305:$rootProject.jsr305Version"
 }
