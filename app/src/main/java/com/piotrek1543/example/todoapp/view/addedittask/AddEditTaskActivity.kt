@@ -3,8 +3,8 @@ package com.piotrek1543.example.todoapp.view.addedittask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.piotrek1543.example.todoapp.R
-import com.piotrek1543.example.todoapp.util.replaceFragmentInActivity
-import com.piotrek1543.example.todoapp.util.setupActionBar
+import com.piotrek1543.example.todoapp.view.util.replaceFragmentInActivity
+import com.piotrek1543.example.todoapp.view.util.setupActionBar
 
 class AddEditTaskActivity : AppCompatActivity() {
 

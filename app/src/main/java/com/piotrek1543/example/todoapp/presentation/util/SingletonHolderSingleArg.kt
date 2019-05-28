@@ -1,4 +1,4 @@
-package com.piotrek1543.example.todoapp.util
+package com.piotrek1543.example.todoapp.presentation.util
 /**
  * Used to allow Singleton with arguments in Kotlin while keeping the code efficient and safe.
  *

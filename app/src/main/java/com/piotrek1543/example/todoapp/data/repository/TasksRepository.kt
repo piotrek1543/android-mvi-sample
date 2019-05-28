@@ -19,7 +19,7 @@ package com.piotrek1543.example.todoapp.data.repository
 import android.support.annotation.VisibleForTesting
 import com.piotrek1543.example.todoapp.data.TasksDataSource
 import com.piotrek1543.example.todoapp.data.model.Task
-import com.piotrek1543.example.todoapp.util.SingletonHolderDoubleArg
+import com.piotrek1543.example.todoapp.data.util.SingletonHolderDoubleArg
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single

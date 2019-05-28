@@ -5,12 +5,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "com.piotrek1543.example.todoapp"
         minSdkVersion 19
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -49,6 +49,8 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$rootProject.archComponentsVersion"
     implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
     kapt "android.arch.lifecycle:compiler:$rootProject.archComponentsVersion"
+
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 
     // Dependencies for local unit tests
     testImplementation "com.nhaarman:mockito-kotlin:$rootProject.mockitoKotlinVersion"

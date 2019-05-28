@@ -5,8 +5,8 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.piotrek1543.example.todoapp.R
-import com.piotrek1543.example.todoapp.util.replaceFragmentInActivity
-import com.piotrek1543.example.todoapp.util.setupActionBar
+import com.piotrek1543.example.todoapp.view.util.replaceFragmentInActivity
+import com.piotrek1543.example.todoapp.view.util.setupActionBar
 import kotlinx.android.synthetic.main.tasks_act.*
 
 /**

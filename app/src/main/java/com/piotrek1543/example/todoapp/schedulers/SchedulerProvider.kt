@@ -1,6 +1,5 @@
-package com.piotrek1543.example.todoapp.util.schedulers
+package com.piotrek1543.example.todoapp.schedulers
 
-import com.piotrek1543.example.todoapp.util.schedulers.BaseSchedulerProvider
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

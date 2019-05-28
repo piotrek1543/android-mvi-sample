@@ -1,4 +1,4 @@
-package com.piotrek1543.example.todoapp.util.schedulers
+package com.piotrek1543.example.todoapp.schedulers
 
 import io.reactivex.Scheduler
 
