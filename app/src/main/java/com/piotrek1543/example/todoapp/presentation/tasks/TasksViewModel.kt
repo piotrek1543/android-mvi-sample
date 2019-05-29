@@ -2,7 +2,7 @@ package com.piotrek1543.example.todoapp.presentation.tasks
 
 import android.arch.lifecycle.ViewModel
 import com.piotrek1543.example.todoapp.data.model.Task
-import com.piotrek1543.example.todoapp.presentation.base.BaseViewModel
+import com.piotrek1543.example.todoapp.presentation.base.*
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksAction.*
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksFilterType.*
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksIntent.*
@@ -10,6 +10,7 @@ import com.piotrek1543.example.todoapp.presentation.tasks.TasksResult.*
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksResult.CompleteTaskResult.*
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksViewState.UiNotification.*
 import com.piotrek1543.example.todoapp.presentation.util.notOfType
+import com.piotrek1543.example.todoapp.ui.tasks.TasksFragment
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 import io.reactivex.functions.BiFunction
@@ -81,7 +82,7 @@ class TasksViewModel(
     }
 
     /**
-     * Translate an [MviIntent] to an [MviAction].
+     * Translate an [BaseIntent] to an [BaseAction].
      * Used to decouple the UI and the business logic to allow easy testings and reusability.
      */
     private fun actionFromIntent(intent: TasksIntent): TasksAction {
@@ -97,11 +98,11 @@ class TasksViewModel(
 
     companion object {
         /**
-         * The Reducer is where [MviViewState], that the [MviView] will use to
+         * The Reducer is where [BaseViewState], that the [BaseView] will use to
          * render itself, are created.
-         * It takes the last cached [MviViewState], the latest [MviResult] and
-         * creates a new [MviViewState] by only updating the related fields.
-         * This is basically like a big switch statement of all possible types for the [MviResult]
+         * It takes the last cached [BaseViewState], the latest [BaseResult] and
+         * creates a new [BaseViewState] by only updating the related fields.
+         * This is basically like a big switch statement of all possible types for the [BaseResult]
          */
         private val reducer = BiFunction { previousState: TasksViewState, result: TasksResult ->
             when (result) {

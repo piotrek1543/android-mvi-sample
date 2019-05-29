@@ -1,6 +1,9 @@
 package com.piotrek1543.example.todoapp.presentation.tasks
 
 import com.piotrek1543.example.todoapp.data.repository.TasksRepository
+import com.piotrek1543.example.todoapp.presentation.base.BaseAction
+import com.piotrek1543.example.todoapp.presentation.base.BaseResult
+import com.piotrek1543.example.todoapp.presentation.base.BaseViewModel
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksAction.*
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksResult.*
 import com.piotrek1543.example.todoapp.presentation.util.pairWithDelay
@@ -9,12 +12,12 @@ import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 
 /**
- * Contains and executes the business logic for all emitted [MviAction]
- * and returns one unique [Observable] of [MviResult].
+ * Contains and executes the business logic for all emitted [BaseAction]
+ * and returns one unique [Observable] of [BaseResult].
  *
  *
- * This could have been included inside the [MviViewModel]
- * but was separated to ease maintenance, as the [MviViewModel] was getting too big.
+ * This could have been included inside the [BaseViewModel]
+ * but was separated to ease maintenance, as the [BaseViewModel] was getting too big.
  */
 class TasksActionProcessorHolder(
         private val tasksRepository: TasksRepository,
@@ -133,9 +136,9 @@ class TasksActionProcessorHolder(
             }
 
     /**
-     * Splits the [Observable] to match each type of [MviAction] to
-     * its corresponding business logic processor. Each processor takes a defined [MviAction],
-     * returns a defined [MviResult]
+     * Splits the [Observable] to match each type of [BaseAction] to
+     * its corresponding business logic processor. Each processor takes a defined [BaseAction],
+     * returns a defined [BaseResult]
      * The global actionProcessor then merges all [Observable] back to
      * one unique [Observable].
      *
@@ -144,7 +147,7 @@ class TasksActionProcessorHolder(
      * on the passed [Observable] as long as one and only one [Observable] is returned.
      *
      *
-     * An security layer is also added for unhandled [MviAction] to allow early crash
+     * An security layer is also added for unhandled [BaseAction] to allow early crash
      * at runtime to easy the maintenance.
      */
     internal var actionProcessor =
