@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.architecture.blueprints.todoapp
+package com.piotrek1543.example.todoapp
 
 import android.content.Context
 

@@ -14,15 +14,14 @@
  * limitations under the License.
  */
 
-package com.example.android.architecture.blueprints.todoapp
+package com.piotrek1543.example.todoapp
 
 import android.content.Context
 import com.example.android.architecture.blueprints.todoapp.data.FakeTasksRemoteDataSource
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository
-import com.example.android.architecture.blueprints.todoapp.data.source.local.TasksLocalDataSource
-import com.example.android.architecture.blueprints.todoapp.util.schedulers.BaseSchedulerProvider
-import com.example.android.architecture.blueprints.todoapp.util.schedulers.SchedulerProvider
+import com.piotrek1543.example.todoapp.data.cache.TasksLocalDataSource
+import com.piotrek1543.example.todoapp.data.repository.TasksRepository
+import com.piotrek1543.example.todoapp.schedulers.BaseSchedulerProvider
+import com.piotrek1543.example.todoapp.schedulers.SchedulerProvider
 
 /**
  * Enables injection of mock implementations for
@@ -30,12 +29,12 @@ import com.example.android.architecture.blueprints.todoapp.util.schedulers.Sched
  * a fake instance of the class to isolate the dependencies and run a test hermetically.
  */
 object Injection {
-  fun provideTasksRepository(context: Context): TasksRepository {
-    return TasksRepository.getInstance(
-        FakeTasksRemoteDataSource,
-        TasksLocalDataSource.getInstance(context, provideSchedulerProvider())
-    )
-  }
+    fun provideTasksRepository(context: Context): TasksRepository {
+        return TasksRepository.getInstance(
+                FakeTasksRemoteDataSource,
+                TasksLocalDataSource.getInstance(context, provideSchedulerProvider())
+        )
+    }
 
-  fun provideSchedulerProvider(): BaseSchedulerProvider = SchedulerProvider
+    fun provideSchedulerProvider(): BaseSchedulerProvider = SchedulerProvider
 }

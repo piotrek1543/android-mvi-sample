@@ -1,4 +1,4 @@
-package com.piotrek1543.example.todoapp.view.statistics
+package com.piotrek1543.example.todoapp.ui.statistics
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

@@ -32,7 +32,7 @@ class TasksViewModel(
      * while the UI disconnects and reconnects on config changes.
      */
     private val intentsSubject: PublishSubject<TasksIntent> = PublishSubject.create()
-    
+
     private val statesObservable: Observable<TasksViewState> = compose()
 
     /**

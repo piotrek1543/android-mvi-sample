@@ -1,10 +1,10 @@
-package com.piotrek1543.example.todoapp.view.statistics
+package com.piotrek1543.example.todoapp.ui.statistics
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.piotrek1543.example.todoapp.R
-import com.piotrek1543.example.todoapp.view.util.replaceFragmentInActivity
-import com.piotrek1543.example.todoapp.view.util.setupActionBar
+import com.piotrek1543.example.todoapp.ui.util.replaceFragmentInActivity
+import com.piotrek1543.example.todoapp.ui.util.setupActionBar
 
 /**
  * Activity houses the Toolbar, the nav UI, the FAB and the fragment for stats.

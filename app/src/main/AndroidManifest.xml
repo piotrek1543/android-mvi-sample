@@ -13,17 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.piotrek1543.example.todoapp.view.tasks.TasksActivity">
+        <activity android:name="com.piotrek1543.example.todoapp.ui.tasks.TasksActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.piotrek1543.example.todoapp.view.addedittask.AddEditTaskActivity"
+            android:name="com.piotrek1543.example.todoapp.ui.addedittask.AddEditTaskActivity"
             android:exported="true" />
         <activity
-            android:name="com.piotrek1543.example.todoapp.view.statistics.StatisticsActivity"
+            android:name="com.piotrek1543.example.todoapp.ui.statistics.StatisticsActivity"
             android:exported="true" />
     </application>
 
