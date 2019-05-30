@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:Suppress("unused")
+
 package com.piotrek1543.example.todoapp.data.remote
 
 import com.piotrek1543.example.todoapp.data.TasksDataSource
