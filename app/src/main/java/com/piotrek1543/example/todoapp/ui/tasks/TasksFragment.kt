@@ -1,6 +1,7 @@
 package com.piotrek1543.example.todoapp.ui.tasks
 
 
+import android.app.Activity
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
@@ -23,6 +24,7 @@ import com.piotrek1543.example.todoapp.presentation.tasks.TasksViewModel
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksViewState
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksViewState.UiNotification.*
 import com.piotrek1543.example.todoapp.presentation.util.ToDoViewModelFactory
+import com.piotrek1543.example.todoapp.ui.addedittask.AddEditTaskActivity
 import com.piotrek1543.example.todoapp.ui.view.ScrollChildSwipeRefreshLayout
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
@@ -105,12 +107,16 @@ class TasksFragment : Fragment(), BaseView<TasksIntent, TasksViewState> {
         disposables.dispose()
     }
 
+
     override fun onActivityResult(
             requestCode: Int,
             resultCode: Int,
             data: Intent?
     ) {
-
+        // If a task was successfully added, show snackbar
+        if (AddEditTaskActivity.REQUEST_ADD_TASK == requestCode && Activity.RESULT_OK == resultCode) {
+            showSuccessfullySavedMessage()
+        }
     }
 
     override fun onCreateView(
@@ -329,7 +335,8 @@ class TasksFragment : Fragment(), BaseView<TasksIntent, TasksViewState> {
     }
 
     private fun showAddTask() {
-        //TODO: implement this
+        val intent = Intent(context, AddEditTaskActivity::class.java)
+        startActivityForResult(intent, AddEditTaskActivity.REQUEST_ADD_TASK)
     }
 
     private fun showTaskDetailsUi(taskId: String) {

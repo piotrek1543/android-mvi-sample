@@ -7,7 +7,7 @@ import com.piotrek1543.example.todoapp.presentation.base.BaseViewModel
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksAction.*
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksResult.*
 import com.piotrek1543.example.todoapp.presentation.util.pairWithDelay
-import com.piotrek1543.example.todoapp.schedulers.BaseSchedulerProvider
+import com.piotrek1543.example.todoapp.data.schedulers.BaseSchedulerProvider
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 

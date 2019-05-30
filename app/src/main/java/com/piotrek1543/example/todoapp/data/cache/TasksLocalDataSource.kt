@@ -25,7 +25,7 @@ import com.piotrek1543.example.todoapp.data.TasksDataSource
 import com.piotrek1543.example.todoapp.data.cache.TasksPersistenceContract.TaskEntry
 import com.piotrek1543.example.todoapp.data.model.Task
 import com.piotrek1543.example.todoapp.data.util.SingletonHolderDoubleArg
-import com.piotrek1543.example.todoapp.schedulers.BaseSchedulerProvider
+import com.piotrek1543.example.todoapp.data.schedulers.BaseSchedulerProvider
 import com.squareup.sqlbrite2.BriteDatabase
 import com.squareup.sqlbrite2.SqlBrite
 import io.reactivex.Completable
