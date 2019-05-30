@@ -20,8 +20,8 @@ import android.content.Context
 import com.example.android.architecture.blueprints.todoapp.data.FakeTasksRemoteDataSource
 import com.piotrek1543.example.todoapp.data.cache.TasksLocalDataSource
 import com.piotrek1543.example.todoapp.data.repository.TasksRepository
-import com.piotrek1543.example.todoapp.schedulers.BaseSchedulerProvider
-import com.piotrek1543.example.todoapp.schedulers.SchedulerProvider
+import com.piotrek1543.example.todoapp.data.schedulers.BaseSchedulerProvider
+import com.piotrek1543.example.todoapp.data.schedulers.SchedulerProvider
 
 /**
  * Enables injection of mock implementations for
