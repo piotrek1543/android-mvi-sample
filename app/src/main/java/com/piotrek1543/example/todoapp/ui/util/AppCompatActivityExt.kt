@@ -36,9 +36,9 @@ fun AppCompatActivity.replaceFragmentInActivity(fragment: Fragment, @IdRes frame
  * The `fragment` is added to the container view with tag. The operation is
  * performed by the `fragmentManager`.
  */
-fun AppCompatActivity.addFragmentToActivity(fragment: Fragment, tag: String) {
+fun AppCompatActivity.addFragmentToActivity(fragment: Fragment, frameId: Int) {
     supportFragmentManager.transact {
-        add(fragment, tag)
+        add(frameId, fragment)
     }
 }
 

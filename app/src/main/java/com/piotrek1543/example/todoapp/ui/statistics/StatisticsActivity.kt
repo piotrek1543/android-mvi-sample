@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.piotrek1543.example.todoapp.R
+import com.piotrek1543.example.todoapp.ui.util.addFragmentToActivity
 import com.piotrek1543.example.todoapp.ui.util.replaceFragmentInActivity
 import com.piotrek1543.example.todoapp.ui.util.setupActionBar
 import kotlinx.android.synthetic.main.statistics_act.*
@@ -23,22 +24,22 @@ class StatisticsActivity : AppCompatActivity() {
 
         // Set up the toolbar.
         setupActionBar(R.id.toolbar) {
+            setTitle(R.string.statistics_title)
+            setHomeAsUpIndicator(R.drawable.ic_menu)
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
+
+        // Set up the navigation drawer.
+        drawerLayout.setStatusBarBackground(R.color.colorPrimaryDark)
 
         findViewById<NavigationView>(R.id.nav_view)?.let { setupDrawerContent(it) }
 
         supportFragmentManager.findFragmentById(R.id.contentFrame) as StatisticsFragment?
                 ?: StatisticsFragment().also {
-                    replaceFragmentInActivity(it, R.id.contentFrame)
+                    addFragmentToActivity(it, R.id.contentFrame)
                 }
 
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

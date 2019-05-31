@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.piotrek1543.example.todoapp.R
 import com.piotrek1543.example.todoapp.ui.statistics.StatisticsActivity
+import com.piotrek1543.example.todoapp.ui.util.addFragmentToActivity
 import com.piotrek1543.example.todoapp.ui.util.replaceFragmentInActivity
 import com.piotrek1543.example.todoapp.ui.util.setupActionBar
 import kotlinx.android.synthetic.main.tasks_act.*
@@ -28,8 +29,10 @@ class TasksActivity : AppCompatActivity() {
         }
 
         // Set up the navigation drawer.
-        drawerLayout.apply {
-            setStatusBarBackground(R.color.colorPrimaryDark)
+        drawerLayout.setStatusBarBackground(R.color.colorPrimaryDark)
+        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+        if (navigationView != null) {
+            setupDrawerContent(navigationView)
         }
 
         setupDrawerContent(nav_view)
@@ -37,7 +40,7 @@ class TasksActivity : AppCompatActivity() {
         // Use existing content fragment, or create one from scratch.
         supportFragmentManager.findFragmentById(R.id.contentFrame) as TasksFragment?
                 ?: TasksFragment().also {
-                    replaceFragmentInActivity(it, R.id.contentFrame)
+                    addFragmentToActivity(it, R.id.contentFrame)
                 }
 
     }
@@ -50,7 +53,6 @@ class TasksActivity : AppCompatActivity() {
                 return true
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
 
