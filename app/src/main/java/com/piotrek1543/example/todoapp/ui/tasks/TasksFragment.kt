@@ -26,6 +26,7 @@ import com.piotrek1543.example.todoapp.presentation.tasks.TasksViewState
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksViewState.UiNotification.*
 import com.piotrek1543.example.todoapp.presentation.util.ToDoViewModelFactory
 import com.piotrek1543.example.todoapp.ui.addedittask.AddEditTaskActivity
+import com.piotrek1543.example.todoapp.ui.taskdetail.TaskDetailActivity
 import com.piotrek1543.example.todoapp.ui.view.ScrollChildSwipeRefreshLayout
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
@@ -342,7 +343,11 @@ class TasksFragment : Fragment(), BaseView<TasksIntent, TasksViewState> {
     }
 
     private fun showTaskDetailsUi(taskId: String) {
-        //TODO: implement this
+        // in it's own Activity, since it makes more sense that way and it gives us the flexibility
+        // to show some MviIntent stubbing.
+        val intent = Intent(context, TaskDetailActivity::class.java)
+        intent.putExtra(TaskDetailActivity.EXTRA_TASK_ID, taskId)
+        startActivity(intent)
     }
 
     private fun showLoadingTasksError() {

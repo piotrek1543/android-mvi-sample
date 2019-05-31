@@ -27,7 +27,6 @@ class StatisticsActivity : AppCompatActivity() {
             setTitle(R.string.statistics_title)
             setHomeAsUpIndicator(R.drawable.ic_menu)
             setDisplayHomeAsUpEnabled(true)
-            setDisplayShowHomeEnabled(true)
         }
 
         // Set up the navigation drawer.
