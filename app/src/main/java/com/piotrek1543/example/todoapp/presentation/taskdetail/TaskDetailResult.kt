@@ -1,4 +1,4 @@
-package com.piotrek1543.example.todoapp.ui.taskdetail
+package com.piotrek1543.example.todoapp.presentation.taskdetail
 
 import com.piotrek1543.example.todoapp.data.model.Task
 import com.piotrek1543.example.todoapp.presentation.base.BaseResult
