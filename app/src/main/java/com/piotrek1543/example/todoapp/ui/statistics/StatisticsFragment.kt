@@ -12,6 +12,6 @@ class StatisticsFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
-            savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.statistics_frag, container, false)
+            savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_statistics, container, false)
 
 }
