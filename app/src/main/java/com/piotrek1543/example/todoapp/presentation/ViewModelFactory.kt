@@ -18,6 +18,7 @@ package com.piotrek1543.example.todoapp.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.piotrek1543.example.todoapp.data.repository.TasksRepository
+import com.piotrek1543.example.todoapp.presentation.tasks.TasksViewModel
 
 /**
  * A creator is used to inject the product ID into the ViewModel
@@ -33,14 +34,15 @@ class ViewModelFactory constructor(
     override fun <T : ViewModel> create(modelClass: Class<T>) =
             with(modelClass) {
                 when {
+                    isAssignableFrom(TasksViewModel::class.java) ->
+                        TasksViewModel(tasksRepository)
                     /*     isAssignableFrom(StatisticsViewModel::class.java) ->
                              StatisticsViewModel(tasksRepository)
                          isAssignableFrom(TaskDetailViewModel::class.java) ->
                              TaskDetailViewModel(tasksRepository)
                          isAssignableFrom(AddEditTaskViewModel::class.java) ->
                              AddEditTaskViewModel(tasksRepository)
-                         isAssignableFrom(TasksViewModel::class.java) ->
-                             TasksViewModel(tasksRepository)*/
+                         */
                     else ->
                         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
                 }
