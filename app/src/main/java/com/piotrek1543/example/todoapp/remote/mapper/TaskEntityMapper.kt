@@ -19,4 +19,14 @@ open class TaskEntityMapper : EntityMapper<TaskModel, Task> {
             description = type.description,
             isCompleted = type.isCompleted
     )
+
+    /**
+     * Map an instance of a [TaskModel] to a [Task] model
+     */
+    override fun mapToRemote(type: Task): TaskModel = TaskModel(
+            id = type.id,
+            title = type.title,
+            description = type.description,
+            isCompleted = type.isCompleted
+    )
 }

@@ -7,8 +7,10 @@ package com.piotrek1543.example.todoapp.remote.mapper
  * @param <M> the remote model input type
  * @param <E> the entity model output type
  */
-interface EntityMapper<in M, out E> {
+interface EntityMapper<T, V> {
 
-    fun mapFromRemote(type: M): E
+    fun mapFromRemote(type: T): V
+
+    fun mapToRemote(type: V): T
 
 }

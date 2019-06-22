@@ -59,8 +59,7 @@ class TasksDataRepository(
 
     private suspend fun fetchTasksFromRemoteOrLocal(forceUpdate: Boolean): Result<List<Task>> {
         // Remote first
-        val remoteTasks = tasksRemoteDataSource.getTasks()
-        when (remoteTasks) {
+        when (val remoteTasks = tasksRemoteDataSource.getTasks()) {
             is Result.Error -> Timber.w("Remote data source fetch failed")
             is Result.Success -> {
                 refreshLocalDataSource(remoteTasks.data)
@@ -112,8 +111,7 @@ class TasksDataRepository(
             forceUpdate: Boolean
     ): Result<Task> {
         // Remote first
-        val remoteTask = tasksRemoteDataSource.getTask(taskId)
-        when (remoteTask) {
+        when (val remoteTask = tasksRemoteDataSource.getTask(taskId)) {
             is Result.Error -> Timber.w("Remote data source fetch failed")
             is Result.Success -> {
                 refreshLocalDataSource(remoteTask.data)
