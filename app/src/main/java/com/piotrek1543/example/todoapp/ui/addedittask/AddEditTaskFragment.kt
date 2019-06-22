@@ -50,7 +50,7 @@ class AddEditTaskFragment : androidx.fragment.app.Fragment(), BaseView<AddEditTa
                 }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.addtask_fragment_menu, menu)
     }
 

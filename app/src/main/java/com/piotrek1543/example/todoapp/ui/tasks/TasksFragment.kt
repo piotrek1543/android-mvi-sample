@@ -163,8 +163,8 @@ class TasksFragment : androidx.fragment.app.Fragment(), BaseView<TasksIntent, Ta
         return root
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item!!.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.menu_clear ->
                 clearCompletedTaskIntentPublisher.onNext(TasksIntent.ClearCompletedTasksIntent)
             R.id.menu_filter -> showFilteringPopUpMenu()
@@ -173,10 +173,7 @@ class TasksFragment : androidx.fragment.app.Fragment(), BaseView<TasksIntent, Ta
         return true
     }
 
-    override fun onCreateOptionsMenu(
-            menu: Menu?,
-            inflater: MenuInflater?
-    ) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater!!.inflate(R.menu.tasks_fragment_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }

@@ -144,8 +144,8 @@ class TaskDetailFragment : androidx.fragment.app.Fragment(), BaseView<TaskDetail
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item!!.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
             R.id.menu_delete -> {
                 deleteTaskIntentPublisher.onNext(TaskDetailIntent.DeleteTask(argumentTaskId))
                 return true
@@ -154,8 +154,8 @@ class TaskDetailFragment : androidx.fragment.app.Fragment(), BaseView<TaskDetail
         return false
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater!!.inflate(R.menu.taskdetail_fragment_menu, menu)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.taskdetail_fragment_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
