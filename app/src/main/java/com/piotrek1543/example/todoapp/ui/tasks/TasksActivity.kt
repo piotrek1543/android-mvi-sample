@@ -22,7 +22,7 @@ class TasksActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.tasks_act)
+        setContentView(R.layout.activity_tasks)
         setupNavigationDrawer()
         setSupportActionBar(findViewById(R.id.toolbar))
 

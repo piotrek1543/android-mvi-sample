@@ -4,9 +4,9 @@
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:orientation="horizontal"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/list_item_padding"
+    android:paddingTop="@dimen/padding_small"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/list_item_padding">
+    android:paddingBottom="@dimen/padding_small">
 
     <CheckBox
         android:id="@+id/complete"
