@@ -1,8 +1,8 @@
 package com.piotrek1543.example.todoapp.ui.statistics
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +22,7 @@ import io.reactivex.disposables.CompositeDisposable
 /**
  * Shows statistics for the app.
  */
-class StatisticsFragment : Fragment(), BaseView<StatisticsIntent, StatisticsViewState> {
+class StatisticsFragment : androidx.fragment.app.Fragment(), BaseView<StatisticsIntent, StatisticsViewState> {
     private lateinit var statisticsTV: TextView
     // Used to manage the data flow lifecycle and avoid memory leak.
     private val disposables: CompositeDisposable = CompositeDisposable()

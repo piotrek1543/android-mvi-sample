@@ -1,7 +1,7 @@
 package com.piotrek1543.example.todoapp.ui.taskdetail
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.piotrek1543.example.todoapp.R
 import com.piotrek1543.example.todoapp.ui.statistics.StatisticsFragment
 import com.piotrek1543.example.todoapp.ui.util.addFragmentToActivity

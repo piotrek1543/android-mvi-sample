@@ -16,7 +16,7 @@
 
 package com.piotrek1543.example.todoapp.presentation.statistics
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.piotrek1543.example.todoapp.presentation.base.*
 import com.piotrek1543.example.todoapp.presentation.base.BaseViewModel
 import com.piotrek1543.example.todoapp.presentation.statistics.StatisticsAction.LoadStatisticsAction

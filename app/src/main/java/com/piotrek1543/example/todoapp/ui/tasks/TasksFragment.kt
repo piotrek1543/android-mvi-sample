@@ -2,15 +2,15 @@ package com.piotrek1543.example.todoapp.ui.tasks
 
 
 import android.app.Activity
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
-import android.support.v7.widget.PopupMenu
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
+import androidx.appcompat.widget.PopupMenu
 import android.view.*
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -38,7 +38,7 @@ import java.util.*
  * This fragment hold the UI for the list of tasks you can check off.
  */
 //TODO: Cleanup code
-class TasksFragment : Fragment(), BaseView<TasksIntent, TasksViewState> {
+class TasksFragment : androidx.fragment.app.Fragment(), BaseView<TasksIntent, TasksViewState> {
 
     //FIXME: Kotlin extensions does not work properly
     private lateinit var noTasksView: View

@@ -1,7 +1,7 @@
 package com.piotrek1543.example.todoapp.presentation.util
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import android.content.Context
 import com.piotrek1543.example.todoapp.Injection
 import com.piotrek1543.example.todoapp.presentation.addedittask.AddEditTaskActionProcessorHolder

@@ -1,6 +1,6 @@
 package com.piotrek1543.example.todoapp.presentation.tasks
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.piotrek1543.example.todoapp.data.model.Task
 import com.piotrek1543.example.todoapp.presentation.base.*
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksAction.*

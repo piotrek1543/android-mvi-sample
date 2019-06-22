@@ -1,8 +1,8 @@
 package com.piotrek1543.example.todoapp.ui.addedittask
 
 import android.os.Bundle
-import android.support.v7.app.ActionBar
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.piotrek1543.example.todoapp.R
 import com.piotrek1543.example.todoapp.ui.util.replaceFragmentInActivity
 import com.piotrek1543.example.todoapp.ui.util.setupActionBar

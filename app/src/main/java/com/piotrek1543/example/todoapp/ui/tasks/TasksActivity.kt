@@ -2,9 +2,9 @@ package com.piotrek1543.example.todoapp.ui.tasks
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
+import androidx.core.view.GravityCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 import com.piotrek1543.example.todoapp.R
 import com.piotrek1543.example.todoapp.ui.statistics.StatisticsActivity

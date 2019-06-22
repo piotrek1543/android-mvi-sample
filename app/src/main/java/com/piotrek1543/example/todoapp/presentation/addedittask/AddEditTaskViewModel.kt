@@ -1,6 +1,6 @@
 package com.piotrek1543.example.todoapp.presentation.addedittask
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
 import com.piotrek1543.example.todoapp.presentation.addedittask.AddEditTaskAction.*
 import com.piotrek1543.example.todoapp.presentation.addedittask.AddEditTaskResult.*
 import com.piotrek1543.example.todoapp.presentation.base.BaseViewModel

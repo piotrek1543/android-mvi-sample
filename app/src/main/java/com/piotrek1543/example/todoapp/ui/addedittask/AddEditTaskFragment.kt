@@ -1,11 +1,11 @@
 package com.piotrek1543.example.todoapp.ui.addedittask
 
 import android.app.Activity
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
 import android.view.*
 import android.widget.TextView
 import com.jakewharton.rxbinding2.view.RxView
@@ -21,7 +21,7 @@ import io.reactivex.disposables.CompositeDisposable
 /**
  * Fragment for adding/editing tasks.
  */
-class AddEditTaskFragment : Fragment(), BaseView<AddEditTaskIntent, AddEditTaskViewState> {
+class AddEditTaskFragment : androidx.fragment.app.Fragment(), BaseView<AddEditTaskIntent, AddEditTaskViewState> {
 
     private lateinit var title: TextView
     private lateinit var description: TextView

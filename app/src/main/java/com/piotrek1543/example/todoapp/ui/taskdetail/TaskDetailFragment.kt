@@ -1,12 +1,12 @@
 package com.piotrek1543.example.todoapp.ui.taskdetail
 
 import android.app.Activity
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import androidx.fragment.app.Fragment
 import android.view.*
 import android.widget.CheckBox
 import android.widget.TextView
@@ -28,7 +28,7 @@ import kotlin.LazyThreadSafetyMode.NONE
 /**
  * Main UI for the task detail screen.
  */
-class TaskDetailFragment : Fragment(), BaseView<TaskDetailIntent, TaskDetailViewState> {
+class TaskDetailFragment : androidx.fragment.app.Fragment(), BaseView<TaskDetailIntent, TaskDetailViewState> {
     private lateinit var detailTitle: TextView
     private lateinit var detailDescription: TextView
     private lateinit var detailCompleteStatus: CheckBox

@@ -16,7 +16,7 @@
 
 package com.piotrek1543.example.todoapp.data.repository
 
-import android.support.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting
 import com.piotrek1543.example.todoapp.data.TasksDataSource
 import com.piotrek1543.example.todoapp.data.model.Task
 import com.piotrek1543.example.todoapp.data.util.SingletonHolderDoubleArg
