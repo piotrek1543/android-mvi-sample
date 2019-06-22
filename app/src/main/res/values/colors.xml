@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (C) 2015 The Android Open Source Project
+  ~ Copyright (C) 2017 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,10 +15,11 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#455A64</color>
+    <color name="colorPrimary">#FFFFF0</color>
     <color name="colorPrimaryDark">#263238</color>
-    <color name="colorAccent">#D50000</color>
-    <color name="yellow">#FFFF00</color>
+    <color name="colorAccent">#2E7D32</color>
+    <color name="colorTextPrimary">#000000</color>
+    <color name="colorGrey">#757575</color>
 
     <drawable name="completedTaskBackground">#CCCCCC</drawable>
 

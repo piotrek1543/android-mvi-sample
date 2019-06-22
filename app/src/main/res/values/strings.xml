@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (C) 2015 The Android Open Source Project
+  ~ Copyright 2017, The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,9 +15,9 @@
   -->
 
 <resources>
-    <string name="app_name">TODO MVI Sample App</string>
-    <string name="add_task">New TO-DO</string>
-    <string name="edit_task">Edit TO-DO</string>
+    <string name="app_name">Todo</string>
+    <string name="add_task">New Task</string>
+    <string name="edit_task">Edit Task</string>
     <string name="task_marked_complete">Task marked complete</string>
     <string name="task_marked_active">Task marked active</string>
     <string name="loading_tasks_error">Error while loading tasks</string>
@@ -25,16 +25,16 @@
     <string name="menu_filter">Filter</string>
     <string name="menu_clear">Clear completed</string>
     <string name="menu_delete_task">Delete task</string>
-    <string name="navigation_view_header_title">TO-DOs</string>
+    <string name="navigation_view_header_title">Todo</string>
     <string name="title_hint">Title</string>
-    <string name="description_hint">Enter your TO-DO here.</string>
+    <string name="description_hint">Enter your task here.</string>
     <string name="empty_task_message">TO DOs cannot be empty</string>
-    <string name="successfully_saved_task_message">TO-DO saved</string>
-    <string name="list_title">TO-DO List</string>
+    <string name="successfully_saved_task_message">Task saved</string>
+    <string name="list_title">Task List</string>
     <string name="statistics_title">Statistics</string>
     <string name="statistics_no_tasks">You have no tasks.</string>
-    <string name="statistics_active_tasks">Active tasks:</string>
-    <string name="statistics_completed_tasks">Completed tasks:</string>
+    <string name="statistics_active_tasks">Active tasks: %.1f%%</string>
+    <string name="statistics_completed_tasks">Completed tasks: %.1f%%</string>
     <string name="statistics_error">Error loading statistics.</string>
     <string name="no_data">No data</string>
     <string name="loading">LOADING</string>
@@ -47,13 +47,19 @@
     <string name="nav_all">All</string>
     <string name="nav_active">Active</string>
     <string name="nav_completed">Completed</string>
-    <string name="label_all">All TO-DOs</string>
-    <string name="label_active">Active TO-DOs</string>
-    <string name="label_completed">Completed TO-DOs</string>
-    <string name="no_tasks_all">You have no TO-DOs!</string>
-    <string name="no_tasks_active">You have no active TO-DOs!</string>
-    <string name="no_tasks_completed">You have no completed TO-DOs!</string>
-    <string name="no_tasks_add">Add a TO-DO item +</string>
+    <string name="label_all">All Tasks</string>
+    <string name="label_active">Active Tasks</string>
+    <string name="label_completed">Completed Tasks</string>
+    <string name="no_tasks_all">You have no tasks!</string>
+    <string name="no_tasks_active">You have no active tasks!</string>
+    <string name="no_tasks_completed">You have no completed tasks!</string>
     <string name="refresh">Refresh</string>
+    <string name="successfully_deleted_task_message">Task was deleted</string>
+    <string name="successfully_added_task_message">Task added</string>
+    <string name="no_data_description" />
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_image_logo">logo</string>
 
 </resources>

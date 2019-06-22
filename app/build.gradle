@@ -2,8 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
-//todo: remove after changes:
-apply plugin: 'kotlin-android-extensions'
+apply from: "$project.rootDir/gradle/script-git-version.gradle"
 
 repositories {
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
@@ -16,8 +15,8 @@ android {
         applicationId "com.example.android.architecture.blueprints.todomvp"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode gitVersionCode
+        versionName gitVersionName
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
@@ -94,11 +93,6 @@ android {
  all versions in a single place. This improves readability and helps managing project complexity.
  */
 dependencies {
-    //fixme: remove after changes
-    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
-    implementation "com.squareup.sqlbrite2:sqlbrite:$rootProject.sqlbriteVersion"
-    implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:$rootProject.rxBindingVersion"
 
     // App dependencies
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
@@ -112,6 +106,7 @@ dependencies {
     implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
     implementation "com.google.guava:guava:$guavaVersion"
     implementation "androidx.room:room-runtime:$roomVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.room:room-compiler:$roomVersion"
 
     // Architecture Components

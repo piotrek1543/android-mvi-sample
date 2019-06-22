@@ -14,22 +14,12 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ui.tasks.TasksActivity"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.OverlapSystemBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ui.taskdetail.TaskDetailActivity" />
-        <activity android:name=".ui.addedittask.AddEditTaskActivity" />
-        <activity
-            android:name=".ui.statistics.StatisticsActivity"
-            android:parentActivityName=".ui.tasks.TasksActivity"
-            tools:ignore="UnusedAttribute">
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.tasks.TasksActivity" />
         </activity>
     </application>
 

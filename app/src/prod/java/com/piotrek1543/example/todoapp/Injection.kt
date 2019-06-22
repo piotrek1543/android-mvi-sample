@@ -30,11 +30,5 @@ import com.example.android.architecture.blueprints.todoapp.util.schedulers.Sched
  * [TasksDataSource] at compile time.
  */
 object Injection {
-  fun provideTasksRepository(context: Context): TasksRepository {
-    return TasksRepository.getInstance(
-        TasksRemoteDataSource,
-        TasksLocalDataSource.getInstance(context, provideSchedulerProvider()))
-  }
 
-  fun provideSchedulerProvider(): BaseSchedulerProvider = SchedulerProvider
 }
