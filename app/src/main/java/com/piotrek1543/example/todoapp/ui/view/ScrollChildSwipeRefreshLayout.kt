@@ -33,7 +33,7 @@ class ScrollChildSwipeRefreshLayout @JvmOverloads constructor(
         attrs: AttributeSet? = null
 ) : SwipeRefreshLayout(context, attrs) {
 
-    private var scrollUpChild: View? = null
+    internal var scrollUpChild: View? = null
 
     override fun canChildScrollUp() =
             scrollUpChild?.canScrollVertically(-1) ?: super.canChildScrollUp()

@@ -20,11 +20,14 @@ package com.piotrek1543.example.todoapp.ui.util
  */
 
 import android.view.View
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import com.piotrek1543.example.todoapp.Event
+import com.piotrek1543.example.todoapp.presentation.tasks.TasksViewModel
+import com.piotrek1543.example.todoapp.ui.view.ScrollChildSwipeRefreshLayout
 
 /**
  * Transforms static java function Snackbar.make() to an extension function on View.
@@ -65,8 +68,8 @@ fun View.setupSnackbar(
  *
  * Creates the `android:onRefresh` for a [SwipeRefreshLayout].
  */
-/*@BindingAdapter("android:onRefresh")
+@BindingAdapter("android:onRefresh")
 fun ScrollChildSwipeRefreshLayout.setSwipeRefreshLayoutOnRefreshListener(
         viewModel: TasksViewModel) {
     setOnRefreshListener { viewModel.loadTasks(true) }
-}*/
+}
