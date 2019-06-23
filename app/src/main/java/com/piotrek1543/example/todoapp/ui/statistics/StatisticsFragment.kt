@@ -47,10 +47,16 @@ class StatisticsFragment : Fragment() {
         statisticsViewModel = obtainViewModel(StatisticsViewModel::class.java)
         viewDataBinding.stats = statisticsViewModel
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
+        activity?.findViewById<View>(R.id.fab)?.visibility = View.GONE
     }
 
     override fun onResume() {
         super.onResume()
         statisticsViewModel.start()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        activity?.findViewById<View>(R.id.fab)?.visibility = View.VISIBLE
     }
 }

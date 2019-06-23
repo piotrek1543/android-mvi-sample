@@ -127,7 +127,8 @@ class TasksFragment : Fragment() {
     }
 
     private fun setupFab() {
-        activity?.findViewById<FloatingActionButton>(R.id.fab_add_task)?.let {
+        activity?.findViewById<FloatingActionButton>(R.id.fab)?.let {
+            it.setImageDrawable(resources.getDrawable(R.drawable.ic_add, it.context!!.theme))
             it.setOnClickListener {
                 navigateToAddNewTask()
             }

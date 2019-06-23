@@ -20,6 +20,7 @@ import android.view.*
 import android.widget.CheckBox
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.piotrek1543.example.todoapp.EventObserver
 import com.piotrek1543.example.todoapp.R
@@ -63,8 +64,11 @@ class TaskDetailFragment : Fragment() {
     }
 
     private fun setupFab() {
-        activity?.findViewById<View>(R.id.fab_edit_task)?.setOnClickListener {
-            viewDataBinding.viewmodel?.editTask()
+        activity?.findViewById<FloatingActionButton>(R.id.fab)?.let {
+            it.setImageDrawable(resources.getDrawable(R.drawable.ic_add, it.context!!.theme))
+            it.setOnClickListener {
+                viewDataBinding.viewmodel?.editTask()
+            }
         }
     }
 

@@ -21,6 +21,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.piotrek1543.example.todoapp.EventObserver
 import com.piotrek1543.example.todoapp.R
@@ -53,9 +54,19 @@ class AddEditTaskFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        setupFab()
         setupSnackbar()
         setupNavigation()
         loadData()
+    }
+
+    private fun setupFab() {
+        activity?.findViewById<FloatingActionButton>(R.id.fab)?.let {
+            it.setImageDrawable(resources.getDrawable(R.drawable.ic_done, it.context!!.theme))
+            it.setOnClickListener {
+                viewDataBinding.viewmodel?.saveTask()
+            }
+        }
     }
 
     private fun setupSnackbar() {
