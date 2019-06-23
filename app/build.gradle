@@ -169,4 +169,5 @@ dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }
