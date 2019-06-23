@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.piotrek1543.example.todoapp.data.repository.TasksRepository
 import com.piotrek1543.example.todoapp.presentation.addedittask.AddEditTaskViewModel
+import com.piotrek1543.example.todoapp.presentation.taskdetail.TaskDetailViewModel
 import com.piotrek1543.example.todoapp.presentation.tasks.TasksViewModel
 
 /**
@@ -39,10 +40,10 @@ class ViewModelFactory constructor(
                         TasksViewModel(tasksRepository)
                     isAssignableFrom(AddEditTaskViewModel::class.java) ->
                         AddEditTaskViewModel(tasksRepository)
+                    isAssignableFrom(TaskDetailViewModel::class.java) ->
+                        TaskDetailViewModel(tasksRepository)
                     /*     isAssignableFrom(StatisticsViewModel::class.java) ->
                              StatisticsViewModel(tasksRepository)
-                         isAssignableFrom(TaskDetailViewModel::class.java) ->
-                             TaskDetailViewModel(tasksRepository)
                          */
                     else ->
                         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
