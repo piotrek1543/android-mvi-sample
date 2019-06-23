@@ -13,5 +13,8 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-
-<resources />
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/google_sans</item>
+    </array>
+</resources>

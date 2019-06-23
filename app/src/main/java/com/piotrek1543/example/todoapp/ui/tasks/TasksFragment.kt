@@ -19,7 +19,6 @@ package com.piotrek1543.example.todoapp.ui.tasks
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.PopupMenu
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -151,21 +150,16 @@ class TasksFragment : Fragment() {
         val viewModel = viewDataBinding.viewmodel
         if (viewModel != null) {
             listAdapter = TasksAdapter(ArrayList(0), viewModel)
-            viewDataBinding.tasksList.adapter = listAdapter
+            viewDataBinding.listTasks.adapter = listAdapter
         } else {
             Timber.w("ViewModel not initialized when attempting to set up adapter.")
         }
     }
 
     private fun setupRefreshLayout() {
-        viewDataBinding.refreshLayout.run {
-            setColorSchemeColors(
-                    ContextCompat.getColor(requireActivity(), R.color.colorPrimary),
-                    ContextCompat.getColor(requireActivity(), R.color.colorAccent),
-                    ContextCompat.getColor(requireActivity(), R.color.colorPrimaryDark)
-            )
+        viewDataBinding.swipeRefresh.run {
             // Set the scrolling view in the custom SwipeRefreshLayout.
-            scrollUpChild = viewDataBinding.tasksList
+            scrollUpChild = viewDataBinding.listTasks
         }
     }
 }

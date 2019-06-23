@@ -73,3 +73,11 @@ fun ScrollChildSwipeRefreshLayout.setSwipeRefreshLayoutOnRefreshListener(
         viewModel: TasksViewModel) {
     setOnRefreshListener { viewModel.loadTasks(true) }
 }
+
+/**
+ * Sets the colors of the [ScrollChildSwipeRefreshLayout] loading indicator.
+ */
+@BindingAdapter("swipeRefreshColors")
+fun setSwipeRefreshColors(swipeRefreshLayout: ScrollChildSwipeRefreshLayout, colorResIds: IntArray) {
+    swipeRefreshLayout.setColorSchemeColors(*colorResIds)
+}

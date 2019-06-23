@@ -13,7 +13,9 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -28,32 +30,41 @@
             type="com.piotrek1543.example.todoapp.ui.tasks.TaskItemUserActionsListener" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/listPreferredItemHeight"
         android:background="@{task.completed ? @drawable/list_completed_touch_feedback : @drawable/touch_feedback}"
-        android:orientation="horizontal"
+        android:onClick="@{() -> listener.onTaskClicked(task)}"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingBottom="@dimen/padding_medium"
         android:paddingTop="@dimen/padding_medium"
-        android:onClick="@{() -> listener.onTaskClicked(task)}">
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/padding_medium">
 
         <CheckBox
-            android:id="@+id/complete"
+            android:id="@+id/check_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{task.completed}"
+            android:onClick="@{(view) -> listener.onCompleteChanged(task, view)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:onClick="@{(view) -> listener.onCompleteChanged(task, view)}"
-            android:checked="@{task.completed}" />
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:text="@{task.titleForList}"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:text="@{task.titleForList}" />
-    </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/check_complete"
+            app:layout_constraintStart_toEndOf="@+id/check_complete"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/no_tasks_all" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

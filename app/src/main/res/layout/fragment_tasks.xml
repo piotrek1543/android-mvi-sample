@@ -17,15 +17,16 @@
 
 
     <com.piotrek1543.example.todoapp.ui.view.ScrollChildSwipeRefreshLayout
-        android:id="@+id/refresh_layout"
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:onRefresh="@{viewmodel}"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:refreshing="@{viewmodel.dataLoading}">
+        app:refreshing="@{viewmodel.dataLoading}"
+        app:swipeRefreshColors="@{@intArray/swipe_refresh}">
 
         <RelativeLayout
-            android:id="@+id/tasksContainer"
+            android:id="@+id/layout_tasks_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
@@ -33,14 +34,14 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/tasksLL"
+                android:id="@+id/layout_tasks"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:visibility="@{viewmodel.empty ? View.GONE : View.VISIBLE}">
 
                 <TextView
-                    android:id="@+id/filteringLabel"
+                    android:id="@+id/text_filtering_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/padding_medium"
@@ -53,20 +54,20 @@
                     android:textSize="16sp" />
 
                 <ListView
-                    android:id="@+id/tasks_list"
+                    android:id="@+id/list_tasks"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:items="@{viewmodel.items}" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/noTasksMain"
+                android:id="@+id/text_no_tasks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:gravity="center"
                 android:drawableTop="@{ContextCompat.getDrawable(context, viewmodel.noTaskIconRes)}"
                 android:drawablePadding="@dimen/padding_medium"
+                android:gravity="center"
                 android:padding="@dimen/padding_medium"
                 android:text="@{context.getString(viewmodel.noTasksLabel)}"
                 android:visibility="@{viewmodel.empty ? View.VISIBLE : View.GONE}"

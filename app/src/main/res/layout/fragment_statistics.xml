@@ -30,7 +30,7 @@
             android:visibility="@{stats.dataLoading ? View.VISIBLE : View.GONE}" />
 
         <LinearLayout
-            android:id="@+id/statistics"
+            android:id="@+id/layout_statistics"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -38,6 +38,7 @@
             android:visibility="@{stats.dataLoading ? View.GONE : View.VISIBLE}">
 
             <TextView
+                android:id="@+id/text_stats_no_tasks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/statistics_no_tasks"
@@ -46,7 +47,7 @@
                 android:visibility="@{stats.empty ? View.VISIBLE : View.GONE}" />
 
             <TextView
-                android:id="@+id/stats_active_text"
+                android:id="@+id/text_stats_active"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="1dp"
@@ -57,7 +58,7 @@
             <!-- android:paddingTop specified to temporarily work around -->
             <!-- https://github.com/robolectric/robolectric/issues/4588 -->
             <TextView
-                android:id="@+id/stats_completed_text"
+                android:id="@+id/text_stats_completed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="1dp"
