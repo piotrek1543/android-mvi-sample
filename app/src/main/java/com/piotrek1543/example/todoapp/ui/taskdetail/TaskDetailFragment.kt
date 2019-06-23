@@ -65,7 +65,7 @@ class TaskDetailFragment : Fragment() {
 
     private fun setupFab() {
         activity?.findViewById<FloatingActionButton>(R.id.fab)?.let {
-            it.setImageDrawable(resources.getDrawable(R.drawable.ic_add, it.context!!.theme))
+            it.setImageDrawable(resources.getDrawable(R.drawable.ic_edit_white_24dp, it.context!!.theme))
             it.setOnClickListener {
                 viewDataBinding.viewmodel?.editTask()
             }
