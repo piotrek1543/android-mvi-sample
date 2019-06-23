@@ -42,7 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:focusable="true">
 
                 <LinearLayout
                     android:id="@+id/tasksLL"
@@ -61,7 +62,8 @@
                         android:layout_marginBottom="@dimen/activity_vertical_margin"
                         android:gravity="center_vertical"
                         android:text="@{context.getString(viewmodel.currentFilteringLabel)}"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                        android:textAppearance="@style/TextAppearance.TodoApp.ListSecondary"
+                        android:textSize="16sp" />
 
                     <ListView
                         android:id="@+id/tasks_list"
@@ -83,6 +85,7 @@
                         android:layout_width="96dp"
                         android:layout_height="96dp"
                         android:layout_gravity="center"
+                        android:contentDescription="@string/no_tasks_all"
                         android:src="@{ContextCompat.getDrawable(context, viewmodel.noTaskIconRes)}" />
 
                     <TextView

@@ -13,7 +13,4 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<resources>
-    <dimen name="dialog_vertical_margin">32dp</dimen>
-    <dimen name="dialog_horizontal_margin">64dp</dimen>
-</resources>
+<resources></resources>
