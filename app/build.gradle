@@ -96,6 +96,7 @@ android {
 dependencies {
 
     // App dependencies
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.cardview:cardview:$cardVersion"
     implementation "com.google.android.material:material:$materialVersion"
@@ -170,5 +171,4 @@ dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
 }
