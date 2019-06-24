@@ -1,29 +1,13 @@
-/*
- * Copyright (C) 2017 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.piotrek1543.example.todoapp.data.source.cache.dao
+package com.piotrek1543.example.todoapp.cache.dao
 
 import androidx.room.*
-import com.piotrek1543.example.todoapp.data.model.Task
+import com.piotrek1543.example.todoapp.cache.model.CachedTask
 
 /**
  * Data Access Object for the tasks table.
  */
 @Dao
-interface TasksDao {
+interface CachedTasksDao {
 
     /**
      * Select all tasks from the tasks table.
@@ -31,7 +15,7 @@ interface TasksDao {
      * @return all tasks.
      */
     @Query("SELECT * FROM Tasks")
-    suspend fun getTasks(): List<Task>
+    suspend fun getTasks(): List<CachedTask>
 
     /**
      * Select a task by id.
@@ -40,7 +24,7 @@ interface TasksDao {
      * @return the task with taskId.
      */
     @Query("SELECT * FROM Tasks WHERE entryid = :taskId")
-    suspend fun getTaskById(taskId: String): Task?
+    suspend fun getTaskById(taskId: String): CachedTask?
 
     /**
      * Insert a task in the database. If the task already exists, replace it.
@@ -48,7 +32,7 @@ interface TasksDao {
      * @param task the task to be inserted.
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTask(task: Task)
+    suspend fun insertTask(task: CachedTask)
 
     /**
      * Update a task.
@@ -57,7 +41,7 @@ interface TasksDao {
      * @return the number of tasks updated. This should always be 1.
      */
     @Update
-    suspend fun updateTask(task: Task): Int
+    suspend fun updateTask(task: CachedTask): Int
 
     /**
      * Update the complete status of a task

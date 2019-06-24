@@ -1,8 +1,9 @@
-package com.piotrek1543.example.todoapp.data.model
+package com.piotrek1543.example.todoapp.cache.model
 
-
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.util.*
-
 
 /**
  * Immutable model class for a CachedTask. In order to compile with Room, we can't use @JvmOverloads to
@@ -13,11 +14,12 @@ import java.util.*
  * @param isCompleted whether or not this task is completed
  * @param id          id of the task
  */
-data class Task @JvmOverloads constructor(
-        var title: String = "",
-        var description: String = "",
-        var isCompleted: Boolean = false,
-        var id: String = UUID.randomUUID().toString()
+@Entity(tableName = "tasks")
+data class CachedTask @JvmOverloads constructor(
+        @ColumnInfo(name = "title") var title: String = "",
+        @ColumnInfo(name = "description") var description: String = "",
+        @ColumnInfo(name = "completed") var isCompleted: Boolean = false,
+        @PrimaryKey @ColumnInfo(name = "entryid") var id: String = UUID.randomUUID().toString()
 ) {
 
     val titleForList: String

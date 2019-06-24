@@ -13,19 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.piotrek1543.example.todoapp.ui.util
 
-package com.piotrek1543.example.todoapp.data.source.cache.db
-
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import com.piotrek1543.example.todoapp.data.model.Task
-import com.piotrek1543.example.todoapp.data.source.cache.dao.TasksDao
+import androidx.test.espresso.IdlingResource
 
 /**
- * The Room Database that contains the Task table.
+ * Contains a static reference to [IdlingResource], only available in the 'mock' build type.
  */
-@Database(entities = [Task::class], version = 1, exportSchema = false)
-abstract class ToDoDatabase : RoomDatabase() {
+object EspressoIdlingResource {
 
-    abstract fun taskDao(): TasksDao
+    private const val RESOURCE = "GLOBAL"
+
+    @JvmField val countingIdlingResource = SimpleCountingIdlingResource(RESOURCE)
+
+    fun increment() = countingIdlingResource.increment()
+
+    fun decrement() = if (!countingIdlingResource.isIdleNow) countingIdlingResource.decrement() else Unit
+
 }

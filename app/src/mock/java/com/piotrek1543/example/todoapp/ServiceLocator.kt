@@ -18,12 +18,11 @@ package com.piotrek1543.example.todoapp
 import android.content.Context
 import androidx.annotation.VisibleForTesting
 import androidx.room.Room
+import com.piotrek1543.example.todoapp.cache.db.ToDoDatabase
+import com.piotrek1543.example.todoapp.cache.source.TasksCachedDataSource
 import com.piotrek1543.example.todoapp.data.FakeTasksRemoteDataSource
-
-import com.piotrek1543.example.todoapp.data.source.DefaultTasksRepository
-import com.piotrek1543.example.todoapp.data.source.TasksRepository
-import com.piotrek1543.example.todoapp.data.source.cache.TasksLocalDataSource
-import com.piotrek1543.example.todoapp.data.source.cache.db.ToDoDatabase
+import com.piotrek1543.example.todoapp.data.TasksDataRepository
+import com.piotrek1543.example.todoapp.data.repository.TasksRepository
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -49,9 +48,9 @@ object ServiceLocator {
             ToDoDatabase::class.java, "Tasks.db")
             .build()
 
-        return DefaultTasksRepository(
-            FakeTasksRemoteDataSource,
-            TasksLocalDataSource(database!!.taskDao())
+        return TasksDataRepository(
+                FakeTasksRemoteDataSource,
+                TasksCachedDataSource(database!!.taskDao())
         )
     }
 

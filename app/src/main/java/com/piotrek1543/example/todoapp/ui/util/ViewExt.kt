@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.piotrek1543.example.todoapp.util
+package com.piotrek1543.example.todoapp.ui.util
 
 /**
  * Extension functions for View and subclasses of View.

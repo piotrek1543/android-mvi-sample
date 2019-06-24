@@ -17,7 +17,7 @@ package com.piotrek1543.example.todoapp.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.piotrek1543.example.todoapp.data.source.TasksRepository
+import com.piotrek1543.example.todoapp.data.repository.TasksRepository
 
 /**
  * A creator is used to inject the product ID into the ViewModel

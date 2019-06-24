@@ -1,23 +1,9 @@
-/*
- * Copyright (C) 2019 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package com.piotrek1543.example.todoapp.data.source
+package com.piotrek1543.example.todoapp.data
 
-import com.piotrek1543.example.todoapp.util.EspressoIdlingResource
-import com.piotrek1543.example.todoapp.data.Result
 import com.piotrek1543.example.todoapp.data.model.Task
+import com.piotrek1543.example.todoapp.data.repository.TasksRepository
+import com.piotrek1543.example.todoapp.data.source.TasksDataSource
+import com.piotrek1543.example.todoapp.ui.util.EspressoIdlingResource
 import kotlinx.coroutines.*
 import timber.log.Timber
 import java.util.concurrent.ConcurrentHashMap
@@ -29,7 +15,7 @@ import java.util.concurrent.ConcurrentMap
  * To simplify the sample, this repository only uses the local data source only if the remote
  * data source fails. Remote is the source of truth.
  */
-class DefaultTasksRepository(
+class TasksDataRepository(
         private val tasksRemoteDataSource: TasksDataSource,
         private val tasksLocalDataSource: TasksDataSource,
         private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
@@ -46,14 +32,14 @@ class DefaultTasksRepository(
             if (!forceUpdate) {
                 cachedTasks?.let { cachedTasks ->
                     EspressoIdlingResource.decrement() // Set app as idle.
-                    return@withContext com.piotrek1543.example.todoapp.data.Result.Success(cachedTasks.values.sortedBy { it.id })
+                    return@withContext Result.Success(cachedTasks.values.sortedBy { it.id })
                 }
             }
 
             val newTasks = fetchTasksFromRemoteOrLocal(forceUpdate)
 
             // Refresh the cache with the new tasks
-            (newTasks as? com.piotrek1543.example.todoapp.data.Result.Success)?.let { refreshCache(it.data) }
+            (newTasks as? Result.Success)?.let { refreshCache(it.data) }
 
             EspressoIdlingResource.decrement() // Set app as idle.
 
@@ -61,7 +47,7 @@ class DefaultTasksRepository(
                 return@withContext Result.Success(tasks.sortedBy { it.id })
             }
 
-            (newTasks as? com.piotrek1543.example.todoapp.data.Result.Success)?.let {
+            (newTasks as? Result.Success)?.let {
                 if (it.data.isEmpty()) {
                     return@withContext Result.Success(it.data)
                 }
@@ -106,14 +92,14 @@ class DefaultTasksRepository(
             if (!forceUpdate) {
                 getTaskWithId(taskId)?.let {
                     EspressoIdlingResource.decrement() // Set app as idle.
-                    return@withContext com.piotrek1543.example.todoapp.data.Result.Success(it)
+                    return@withContext Result.Success(it)
                 }
             }
 
             val newTask = fetchTaskFromRemoteOrLocal(taskId, forceUpdate)
 
             // Refresh the cache with the new tasks
-            (newTask as? com.piotrek1543.example.todoapp.data.Result.Success)?.let { cacheTask(it.data) }
+            (newTask as? Result.Success)?.let { cacheTask(it.data) }
 
             EspressoIdlingResource.decrement() // Set app as idle.
 

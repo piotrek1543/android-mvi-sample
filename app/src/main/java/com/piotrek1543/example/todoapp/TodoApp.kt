@@ -1,7 +1,7 @@
 package com.piotrek1543.example.todoapp
 
 import android.app.Application
-import com.piotrek1543.example.todoapp.data.source.TasksRepository
+import com.piotrek1543.example.todoapp.data.repository.TasksRepository
 import timber.log.Timber
 
 

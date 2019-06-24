@@ -1,4 +1,4 @@
-package com.piotrek1543.example.todoapp.data.source
+package com.piotrek1543.example.todoapp.data.repository
 
 import com.piotrek1543.example.todoapp.data.Result
 import com.piotrek1543.example.todoapp.data.model.Task
