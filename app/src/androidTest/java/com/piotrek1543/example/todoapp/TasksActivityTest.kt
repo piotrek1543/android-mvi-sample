@@ -96,8 +96,8 @@ class TasksActivityTest {
 
         // Click on the edit button, edit, and save
         onView(withId(R.id.fab)).perform(click())
-        onView(withId(R.id.add_task_title)).perform(replaceText("NEW TITLE"))
-        onView(withId(R.id.add_task_description)).perform(replaceText("NEW DESCRIPTION"))
+        onView(withId(R.id.edit_task_title)).perform(replaceText("NEW TITLE"))
+        onView(withId(R.id.edit_task_description)).perform(replaceText("NEW DESCRIPTION"))
         onView(withId(R.id.fab)).perform(click())
 
         // Verify task is displayed on screen in the task list.
@@ -115,8 +115,8 @@ class TasksActivityTest {
 
         // Add active task
         onView(withId(R.id.fab)).perform(click())
-        onView(withId(R.id.add_task_title)).perform(typeText("TITLE1"), closeSoftKeyboard())
-        onView(withId(R.id.add_task_description)).perform(typeText("DESCRIPTION"))
+        onView(withId(R.id.edit_task_title)).perform(typeText("TITLE1"), closeSoftKeyboard())
+        onView(withId(R.id.edit_task_description)).perform(typeText("DESCRIPTION"))
         onView(withId(R.id.fab)).perform(click())
 
         // Open it in details view
@@ -256,8 +256,8 @@ class TasksActivityTest {
 
         // Click on the "+" button, add details, and save
         onView(withId(R.id.fab)).perform(click())
-        onView(withId(R.id.add_task_title)).perform(typeText("title"), closeSoftKeyboard())
-        onView(withId(R.id.add_task_description)).perform(typeText("description"))
+        onView(withId(R.id.edit_task_title)).perform(typeText("title"), closeSoftKeyboard())
+        onView(withId(R.id.edit_task_description)).perform(typeText("description"))
         onView(withId(R.id.fab)).perform(click())
 
         // Then verify task is displayed on screen
