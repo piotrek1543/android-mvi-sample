@@ -1,11 +1,6 @@
 package com.piotrek1543.example.todoapp.ui.tasks
 
-import android.content.Context
-import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.test.core.app.ActivityScenario.launch
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.espresso.Espresso.onView
@@ -31,7 +26,6 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
 import org.robolectric.annotation.LooperMode
 import org.robolectric.annotation.TextLayoutMode
 
@@ -292,19 +286,16 @@ class TasksFragmentTest {
     @Test
     fun clickAddTaskButton_navigateToAddEditFragment_solution() {
         // GIVEN - On the home screen
-        val scenario = launchFragmentInContainer<TasksFragment>(Bundle(), R.style.AppTheme)
-        val navController = Mockito.mock(NavController::class.java)
-        scenario.onFragment {
-            Navigation.setViewNavController(it.view!!, navController)
-        }
+        val activityScenario = launch(TasksActivity::class.java)
 
         // WHEN - Click on the "+" button
-        onView(withId(R.id.fab_add_task)).perform(click())
+        onView(withId(R.id.fab)).perform(click())
 
         // THEN - Verify that we navigate to the add screen
-        Mockito.verify(navController).navigate(
-                TasksFragmentDirections.actionTasksFragmentToAddEditTaskFragment(
-                        null, getApplicationContext<Context>().getString(R.string.add_task)))
+        onView(withId(R.id.edit_task_title)).check(matches((isDisplayed())))
+        onView(withId(R.id.edit_task_description)).check(matches((isDisplayed())))
+
+        activityScenario.close()
     }
 
     private fun checkboxWithText(text: String): Matcher<View> {
