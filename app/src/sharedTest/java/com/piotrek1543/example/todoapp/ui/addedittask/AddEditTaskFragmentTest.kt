@@ -3,7 +3,7 @@ package com.piotrek1543.example.todoapp.ui.addedittask
 import android.content.Context
 import androidx.navigation.findNavController
 import androidx.test.core.app.ActivityScenario
-import androidx.test.core.app.ApplicationProvider.getApplicationContext
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -38,22 +38,12 @@ import org.robolectric.annotation.TextLayoutMode
 @ExperimentalCoroutinesApi
 class AddEditTaskFragmentTest {
     private lateinit var repository: TasksRepository
-    private lateinit var activityScenario: ActivityScenario<TasksActivity>
 
     @Before
     fun initRepository() {
-        activityScenario = ActivityScenario.launch(TasksActivity::class.java)
-        activityScenario.onActivity {
-            val bundle = AddEditTaskFragmentArgs(null,
-                    getApplicationContext<Context>().getString(R.string.add_task)).toBundle()
-            it.findNavController(R.id.nav_host_fragment).navigate(R.id.addEditTaskFragment, bundle)
-        }
         repository = FakeRepository()
         ServiceLocator.tasksRepository = repository
     }
-
-    @After
-    fun closeScenario() = activityScenario.close()
 
     @After
     fun cleanupDb() = runBlockingTest {
@@ -62,6 +52,12 @@ class AddEditTaskFragmentTest {
 
     @Test
     fun emptyTask_isNotSaved() {
+        val activityScenario = ActivityScenario.launch(TasksActivity::class.java)
+        activityScenario.onActivity {
+            val bundle = AddEditTaskFragmentArgs(null,
+                    ApplicationProvider.getApplicationContext<Context>().getString(R.string.add_task)).toBundle()
+            it.findNavController(R.id.nav_host_fragment).navigate(R.id.addEditTaskFragment, bundle)
+        }
         // GIVEN - On the "Add Task" screen.
         onView(withId(R.id.edit_task_title)).check(matches(isDisplayed()))
         onView(withId(R.id.edit_task_description)).check(matches(isDisplayed()))
@@ -78,6 +74,12 @@ class AddEditTaskFragmentTest {
     @Test
     fun validTask_isSaved() {
         val title = "title"
+        val activityScenario = ActivityScenario.launch(TasksActivity::class.java)
+        activityScenario.onActivity {
+            val bundle = AddEditTaskFragmentArgs(null,
+                    ApplicationProvider.getApplicationContext<Context>().getString(R.string.add_task)).toBundle()
+            it.findNavController(R.id.nav_host_fragment).navigate(R.id.addEditTaskFragment, bundle)
+        }
 
         // GIVEN - On the "Add Task" screen.
         onView(withId(R.id.edit_task_title)).check(matches(isDisplayed()))
@@ -94,6 +96,13 @@ class AddEditTaskFragmentTest {
 
     @Test
     fun validTask_navigatesBack() {
+        val activityScenario = ActivityScenario.launch(TasksActivity::class.java)
+        activityScenario.onActivity {
+            val bundle = AddEditTaskFragmentArgs(null,
+                    ApplicationProvider.getApplicationContext<Context>().getString(R.string.add_task)).toBundle()
+            it.findNavController(R.id.nav_host_fragment).navigate(R.id.addEditTaskFragment, bundle)
+        }
+
         // GIVEN - On the "Add Task" screen.
         onView(withId(R.id.edit_task_title)).check(matches(isDisplayed()))
         onView(withId(R.id.edit_task_description)).check(matches(isDisplayed()))
@@ -110,6 +119,13 @@ class AddEditTaskFragmentTest {
 
     @Test
     fun validTask_isSaved_solution() {
+        val activityScenario = ActivityScenario.launch(TasksActivity::class.java)
+        activityScenario.onActivity {
+            val bundle = AddEditTaskFragmentArgs(null,
+                    ApplicationProvider.getApplicationContext<Context>().getString(R.string.add_task)).toBundle()
+            it.findNavController(R.id.nav_host_fragment).navigate(R.id.addEditTaskFragment, bundle)
+        }
+
         // GIVEN - On the "Add Task" screen.
         onView(withId(R.id.edit_task_title)).check(matches(isDisplayed()))
         onView(withId(R.id.edit_task_description)).check(matches(isDisplayed()))

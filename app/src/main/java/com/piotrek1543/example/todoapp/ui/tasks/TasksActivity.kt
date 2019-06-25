@@ -16,7 +16,6 @@
 package com.piotrek1543.example.todoapp.ui.tasks
 
 import android.os.Bundle
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -41,12 +40,6 @@ class TasksActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val mDrawerToggle = ActionBarDrawerToggle(
-                this, drawerLayout, toolbar,
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        )
-        drawerLayout.addDrawerListener(mDrawerToggle)
-
         val navController: NavController = findNavController(R.id.nav_host_fragment)
         appBarConfiguration =
                 AppBarConfiguration.Builder(R.id.tasksFragment, R.id.statisticsFragment)
@@ -56,7 +49,6 @@ class TasksActivity : AppCompatActivity() {
         findViewById<NavigationView>(R.id.nav_view)
                 .setupWithNavController(navController)
 
-        mDrawerToggle.syncState()
     }
 
     override fun onSupportNavigateUp(): Boolean {
